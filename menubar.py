@@ -11,7 +11,7 @@ class menuApp(object):
 
         self.presentation = rumps.MenuItem(title="Presentation Mode", callback=None)
         self.presentation.on = rumps.MenuItem(title="on", callback=self.presentationMode)
-        self.presentation.off = rumps.MenuItem(title="off", callback=self.presentationMode)
+        self.presentation.off = rumps.MenuItem(title="off", callback=None)
 
         self.app.menu = [
             self.branding, 
@@ -20,7 +20,13 @@ class menuApp(object):
         ]
 
     def presentationMode(self, sender):
-        rumps.notification(title="Present", subtitle=f"Presentation Mode is {sender.title}", message='', sound=False)
+        #rumps.notification(title="Present", subtitle=f"Presentation Mode is {sender.title}", message='', sound=False)
+        if (sender.title == "on"):
+            self.presentation.on.set_callback(None)
+            self.presentation.off.set_callback(self.presentationMode)
+        else:
+            self.presentation.off.set_callback(None)
+            self.presentation.on.set_callback(self.presentationMode)
 
     def run(self):
         self.app.run()
