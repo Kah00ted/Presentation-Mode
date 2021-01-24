@@ -1,4 +1,5 @@
 import rumps
+from presentationMode import *
 
 #rumps.notification(title="gofer", subtitle="gofer is starting", message='', sound=False)
 
