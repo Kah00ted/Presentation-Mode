@@ -12,8 +12,9 @@ def setPresentationMode(torf):
 
         # Message Box
         finderAsk = messagebox.askokcancel("Warning", "All finder windows will be closed and some unsaved files may be deleted.", default="cancel", icon='warning')
+
         if finderAsk == True:
-            print ("ok")
+            setDesktopIcons(False)
         
 
 def setDesktopIcons(value):
@@ -22,8 +23,8 @@ def setDesktopIcons(value):
     if (value == True):
         os.system('defaults write com.apple.finder CreateDesktop -bool True; killall Finder')
 
-setDesktopIcons(True)
-
 def closeApps():
     print("closing apps")
     #os.kill("brave")
+
+#setPresentationMode(True)
