@@ -11,4 +11,5 @@ def setDesktopIcons(value):
 setDesktopIcons(True)
 
 def closeApps():
+    print("closing apps")
     #os.kill("brave")
