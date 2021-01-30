@@ -1,7 +1,10 @@
 import rumps
 from presentationMode import *
+import tkinter
+from tkinter import messagebox
 
 #rumps.notification(title="gofer", subtitle="gofer is starting", message='', sound=False)
+
 
 class menuApp(object):
 
@@ -10,14 +13,16 @@ class menuApp(object):
 
         self.branding = rumps.MenuItem(title="--Reid Metzger--", callback=None)
 
-        self.presentation = rumps.MenuItem(title="Presentation Mode", callback=None)
-        self.presentation.on = rumps.MenuItem(title="on", callback=self.presentationMode)
+        self.presentation = rumps.MenuItem(
+            title="Presentation Mode", callback=None)
+        self.presentation.on = rumps.MenuItem(
+            title="on", callback=self.presentationMode)
         self.presentation.off = rumps.MenuItem(title="off", callback=None)
 
         self.app.menu = [
-            self.branding, 
-            None, 
-            [self.presentation,[self.presentation.on, self.presentation.off]]
+            self.branding,
+            None,
+            [self.presentation, [self.presentation.on, self.presentation.off]]
         ]
 
     def presentationMode(self, sender):
@@ -25,12 +30,18 @@ class menuApp(object):
         if (sender.title == "on"):
             self.presentation.on.set_callback(None)
             self.presentation.off.set_callback(self.presentationMode)
+
+            setPresentationMode(True)
+
         else:
             self.presentation.off.set_callback(None)
             self.presentation.on.set_callback(self.presentationMode)
 
+            setPresentationMode(False)
+
     def run(self):
         self.app.run()
+
 
 if __name__ == '__main__':
     app = menuApp()

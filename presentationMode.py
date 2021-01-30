@@ -5,16 +5,11 @@ import tkinter
 from tkinter import messagebox
 
 def setPresentationMode(torf):
-    if (torf == True):
-        # This code is to hide the main tkinter window
-        root = tkinter.Tk()
-        root.withdraw()
+    if (torf == True): #setPresentationMode(True)
+        setDesktopIcons(False)
 
-        # Message Box
-        finderAsk = messagebox.askokcancel("Warning", "All finder windows will be closed and some unsaved files may be deleted.", default="cancel", icon='warning')
-
-        if finderAsk == True:
-            setDesktopIcons(False)
+    elif (torf == False):
+        setDesktopIcons(True)
         
 
 def setDesktopIcons(value):
