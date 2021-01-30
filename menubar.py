@@ -33,11 +33,15 @@ class menuApp(object):
 
             setPresentationMode(True)
 
+            rumps.notification(title="Presentation Mode: Enabled", subtitle=f"", message='', sound=False)
+
         else:
             self.presentation.off.set_callback(None)
             self.presentation.on.set_callback(self.presentationMode)
 
             setPresentationMode(False)
+
+            rumps.notification(title="Presentation Mode: Disabled", subtitle=f"", message='', sound=False)
 
     def run(self):
         self.app.run()
