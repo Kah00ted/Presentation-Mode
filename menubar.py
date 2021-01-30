@@ -4,7 +4,7 @@ from presentationMode import *
 class menuApp(object):
 
     def __init__(self):
-        self.app = rumps.App("Presentation Mode", "🧨")
+        self.app = rumps.App("Presentation Mode", "👀")
 
         self.branding = rumps.MenuItem(title="--Reid Metzger--", callback=None)
 
@@ -15,8 +15,8 @@ class menuApp(object):
         self.presentation.off = rumps.MenuItem(title="off", callback=None)
 
         self.app.menu = [
-            self.branding,
-            None,
+            #self.branding,
+            #None,
             [self.presentation, [self.presentation.on, self.presentation.off]]
         ]
 
