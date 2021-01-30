@@ -1,10 +1,5 @@
 import rumps
 from presentationMode import *
-import tkinter
-from tkinter import messagebox
-
-#rumps.notification(title="gofer", subtitle="gofer is starting", message='', sound=False)
-
 
 class menuApp(object):
 
@@ -26,7 +21,6 @@ class menuApp(object):
         ]
 
     def presentationMode(self, sender):
-        #rumps.notification(title="Present", subtitle=f"Presentation Mode is {sender.title}", message='', sound=False)
         if (sender.title == "on"):
             self.presentation.on.set_callback(None)
             self.presentation.off.set_callback(self.presentationMode)
