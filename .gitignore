@@ -1,3 +1,6 @@
 .vscode
 venv
 tests
+build
+dist
+.eggs
