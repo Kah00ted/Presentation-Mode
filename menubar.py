@@ -1,5 +1,6 @@
 import rumps
 from presentationMode import *
+import webbrowser
 
 class menuApp(object):
 
@@ -7,8 +8,8 @@ class menuApp(object):
         self.app = rumps.App("Presentation Mode", "👀", quit_button=None)
 
         self.about = rumps.MenuItem(title="About", callback=None)
-        self.about.by = rumps.MenuItem(title="Author: Reid Metzger", callback=None)
-        self.about.git = rumps.MenuItem(title="Github", callback=None)
+        self.about.by = rumps.MenuItem(title="Author: Reid Metzger", callback=self.openLink)
+        self.about.git = rumps.MenuItem(title="Github", callback=self.openLink)
         self.about.quit = rumps.MenuItem(title="Quit App", callback=rumps.quit_application)
 
         self.presentation = rumps.MenuItem(
@@ -22,8 +23,14 @@ class menuApp(object):
             #None,
             [self.presentation, [self.presentation.on, self.presentation.off]],
             None,
-            [self.about, [self.about.by, self.about.git, self.about.quit]]
+            [self.about, [self.about.by, self.about.git, None, self.about.quit]]
         ]
+
+    def openLink(self, sender):
+        if (sender.title == "Author: Reid Metzger"):
+            webbrowser.open("https://reidmetzger.com", new=0, autoraise=True)
+        if (sender.title == "Github"):
+            webbrowser.open("https://github.com/Kah00ted", new=0, autoraise=True)
 
     def presentationMode(self, sender):
         if (sender.title == "on"):
