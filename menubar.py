@@ -5,7 +5,7 @@ import webbrowser
 class menuApp(object):
 
     def __init__(self):
-        self.app = rumps.App("Presentation Mode", "👀", quit_button=None)
+        self.app = rumps.App("Presentation Mode", icon="art/icon1.png", quit_button=None)
 
         self.about = rumps.MenuItem(title="About", callback=None)
         self.about.by = rumps.MenuItem(title="Author: Reid Metzger", callback=self.openLink)
