@@ -4,7 +4,6 @@ tests
 build
 dist
 .eggs
-.kra
 *~
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos
