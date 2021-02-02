@@ -5,6 +5,15 @@
 	<br><h2 align="center">Presentation Mode</h3></br>
 </p>
 <p align="center">
+  <a href="#installation">Installation</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#features-and-todo">Features</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#features-and-todo">TODO</a>
+
+</p>
+
+<p align="center">
 </a>
 </p>
 
