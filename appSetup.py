@@ -1,7 +1,7 @@
 from setuptools import setup
 
 APP = ['menubar.py']
-DATA_FILES = []
+DATA_FILES = [('', ['art'])]
 OPTIONS = {
     'argv_emulation': True,
     'iconfile': 'art/icon1.png',
