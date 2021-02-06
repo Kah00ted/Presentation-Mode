@@ -43,7 +43,7 @@ class menuApp(object):
             osascript.run('''
             tell application "System Events"
                 set listOfProcesses to (name of every process where (background only is false) and (name ≠ "finder"))
-                tell me to set selectedProcesses to choose from list listOfProcesses with prompt "Open Apps: (select to close)" default items "None" OK button name {"Close Selcted"} cancel button name {"Cancel"} with multiple selections allowed
+                tell me to set selectedProcesses to choose from list listOfProcesses with prompt "Close windows before presenting?" default items "None" OK button name {"Close Selcted"} cancel button name {"Cancel"} with multiple selections allowed
             end tell
             --The variable `selectedProcesses` will contain the list of selected items.
             repeat with processName in selectedProcesses
