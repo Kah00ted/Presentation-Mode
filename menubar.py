@@ -1,6 +1,7 @@
 import rumps
 from presentationMode import *
 import webbrowser
+import osascript
 
 class menuApp(object):
 
@@ -38,6 +39,17 @@ class menuApp(object):
             self.presentation.off.set_callback(self.presentationMode)
 
             setPresentationMode(True)
+
+            osascript.run('''
+            tell application "System Events"
+                set listOfProcesses to (name of every process where (background only is false) and (name ≠ "finder"))
+                tell me to set selectedProcesses to choose from list listOfProcesses with prompt "Open Apps: (select to close)" default items "None" OK button name {"Close Selcted"} cancel button name {"Cancel"} with multiple selections allowed
+            end tell
+            --The variable `selectedProcesses` will contain the list of selected items.
+            repeat with processName in selectedProcesses
+                do shell script "Killall " & quoted form of processName
+            end repeat
+            ''')
 
             rumps.notification(title="Presentation Mode: Enabled", subtitle=f"", message='', sound=False)
 
